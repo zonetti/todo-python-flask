@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h1>Todo list</h1>
+
+<form action="" method="post">
+    {{ form.hidden_tag() }}
+    <p>
+        <lable>Todo</lable>
+        {{ form.body(size=80) }}
+        {% for error in form.errors.body %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}<br>
+    </p>
+    <p><input type="submit" value="Save"></p>
+</form>
+
+<ul>
+    {% for todo in todos %}
+    <li>{{ todo.body }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,34 @@
+<html>
+  <head>
+    {% if title %}
+    <title>{{title}} - todo</title>
+    {% else %}
+    <title>todo</title>
+    {% endif %}
+  </head>
+  <body>
+    <div>
+        Todo
+        {% if g.user.is_anonymous() %}
+        <a href="/">Home</a>
+        <a href="/login">Login</a>
+        <a href="/register">Register</a>
+        {% else %}
+        <a href="/todos">Todo List</a>
+        <a href="/logout">Logout</a>
+        {% endif %}
+    </div>
+    <hr>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+    {% for message in messages %}
+        <li>{{ message }} </li>
+    {% endfor %}
+    </ul>
+    <hr>
+    {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+  </body>
+</html>
