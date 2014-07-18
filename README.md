@@ -1,6 +1,6 @@
 # todo-python-flask
 
-Just playing with Python and [Flask][Flask]
+A simple TODO web application using Python/[Flask][Flask].
 
 ## How to install
 
